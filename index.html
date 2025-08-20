@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lead Tracker Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/logo.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <img src="assets/logo.svg" alt="Lead Tracker Pro Logo" class="logo-img" />
+    <span class="app-title">Lead Tracker Pro</span>
+    <div class="month-picker">
+      <button class="month-btn" id="prevMonthBtn" title="Previous Month">&#8592;</button>
+      <span class="month-label" id="monthLabel"></span>
+      <button class="month-btn" id="nextMonthBtn" title="Next Month">&#8594;</button>
+    </div>
+  </header>
+
+  <section class="metrics-bar" id="metricsBar">
+    <!-- Metrics will be rendered here -->
+  </section>
+
+  <section class="filters-bar">
+    <select id="filterContact" class="filter-select">
+      <option value="all">All Leads</option>
+      <option value="contacted">Contact Made</option>
+      <option value="not_contacted">Not Contacted</option>
+    </select>
+    <select id="filterStatus" class="filter-select">
+      <option value="all">All Status</option>
+      <option value="closed_won">Closed Won</option>
+      <option value="closed_lost">Closed Lost</option>
+      <option value="open">Open</option>
+    </select>
+    <select id="filterSource" class="filter-select">
+      <option value="all">All Sources</option>
+      <option value="AS Call">AS Call</option>
+      <option value="AS Internet">AS Internet</option>
+      <option value="Internet">Internet</option>
+    </select>
+    <button class="filter-btn" id="filterHot"><span>🔥</span> Hot</button>
+    <button class="filter-btn" id="filterStale"><span>⏰</span> Stale</button>
+    <button class="csv-btn" id="exportCsvBtn">Export CSV</button>
+    <label class="csv-btn" for="importCsvInput" style="margin:0;">
+      Import CSV
+      <input type="file" id="importCsvInput" class="import-input" accept=".csv"/>
+    </label>
+    <button class="save-btn" id="saveBtn">Save</button>
+  </section>
+
+  <section class="table-scroll">
+    <table class="leads-table" id="leadsTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Customer Name</th>
+          <th>Phone</th>
+          <th>Source</th>
+          <th>Call Attempts</th>
+          <th>Text Attempts</th>
+          <th>Email Attempts</th>
+          <th>Contact Made</th>
+          <th>Contact Types</th>
+          <th>Status</th>
+          <th>Hot</th>
+          <th>Last Contact Attempt</th>
+          <th>Contact Made On</th>
+          <th class="status-cell">Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="leadsTableBody">
+        <!-- Leads will be rendered here -->
+      </tbody>
+    </table>
+  </section>
+  <footer style="text-align:center; padding:22px 0 12px; font-size:1rem; color:#6b7280;">
+    <img src="assets/logo.svg" style="height:28px;vertical-align:middle;margin-right:6px;">
+    Lead Tracker Pro &copy; 2025 | Automotive CRM
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+:root {
+  --ford-blue: #2563eb;
+  --ford-dark: #1d3c6e;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --muted: #6b7280;
+  --bg: #f5f7fb;
+  --table-bg: #fff;
+  --hot: #ffab00;
+  --stale: #b91c1c;
+  --closed-won: #15803d;
+  --closed-lost: #dc2626;
+  --border: #e5e7eb;
+  --header-height: 72px;
+  --sidebar-width: 0px;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg), #d7def0 80%);
+  color: var(--ford-dark);
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  background: var(--ford-dark);
+  color: #fff;
+  min-height: var(--header-height);
+  box-shadow: 0 4px 18px 0 rgba(37, 99, 235, 0.08);
+}
+
+.app-header .logo-img {
+  width: 48px; height: 48px; flex: none;
+}
+
+.app-header .app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.app-header .month-picker {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.month-btn {
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: background 0.14s;
+}
+.month-btn:focus, .month-btn:hover {
+  background: var(--ford-blue);
+}
+
+.month-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0 8px;
+  color: #fff;
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #eaf1fb;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.filter-select, .filter-btn {
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 14px;
+  color: var(--ford-dark);
+  margin-right: 4px;
+  cursor: pointer;
+  min-width: 120px;
+  transition: border-color 0.18s;
+}
+.filter-btn.active, .filter-select.active {
+  border: 2px solid var(--ford-blue);
+  background: #e3eefd;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  padding: 16px 0;
+  background: var(--table-bg);
+}
+
+.leads-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--table-bg);
+  min-width: 1300px;
+  box-shadow: 0 6px 24px 0 rgba(2, 6, 23, 0.04);
+  border-radius: var(--radius);
+  margin: 0 auto;
+}
+
+.leads-table th, .leads-table td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.leads-table th {
+  background: var(--ford-blue);
+  color: #fff;
+  font-weight: 600;
+}
+
+.leads-table tbody tr {
+  transition: background 0.12s;
+}
+
+.leads-table tr.hot-lead { background: #fff8e1; }
+.leads-table tr.stale-lead { background: #fbeaea; }
+.leads-table tr.closed-won { background: #e6fbe9; }
+.leads-table tr.closed-lost { background: #ffeaea; }
+
+.leads-table td.status-cell .emoji { font-size: 1.2rem; vertical-align: middle; }
+
+.btn, .counter-btn, .contact-btn, .hot-btn {
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+  background: var(--ford-blue);
+  color: #fff;
+  outline: none;
+  margin: 0 2px;
+}
+
+.btn:active, .counter-btn:active, .contact-btn:active, .hot-btn:active {
+  background: var(--ford-dark);
+}
+
+.counter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #eaf1fb;
+  color: var(--ford-blue);
+  border: 1px solid var(--ford-blue);
+  font-size: 1rem;
+  min-width: 56px;
+  justify-content: center;
+}
+.counter-btn:hover {
+  background: #e3eefd;
+}
+
+.contact-btn {
+  background: var(--success);
+  color: #fff;
+  padding: 7px 12px;
+  font-size: 1rem;
+}
+.contact-btn.contact-made {
+  background: var(--ford-blue);
+  color: #fff;
+}
+.contact-btn.contact-call { background: #1d3c6e; }
+.contact-btn.contact-text { background: #2563eb; }
+.contact-btn.contact-email { background: #f59e0b; color: #111; }
+
+.hot-btn {
+  background: var(--hot);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 1.2rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.hot-btn.active {
+  background: #ff6d00;
+}
+
+input, select {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 6px 7px;
+  width: 100%;
+  min-width: 70px;
+}
+input:focus, select:focus {
+  border-color: var(--ford-blue);
+  outline: 1.5px solid #2563eb44;
+}
+
+.status-cell select {
+  min-width: 110px;
+}
+
+.table-actions {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.add-row-btn, .delete-row-btn {
+  background: var(--ford-blue);
+  color: #fff;
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 1.1rem;
+  border: none;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+.add-row-btn:hover { background: #194085; }
+.delete-row-btn { background: var(--danger);}
+.delete-row-btn:hover { background: #b91c1c; }
+
+.csv-btn, .save-btn {
+  background: var(--ford-blue);
+  color: #fff;
+  margin-left: 8px;
+  padding: 7px 16px;
+  border-radius: 7px;
+  font-size: 1rem;
+}
+.csv-btn:hover, .save-btn:hover { background: #194085; }
+
+.import-input {
+  display: none;
+}
+
+.metrics-bar {
+  display: flex;
+  gap: 30px;
+  padding: 10px 28px 10px 24px;
+  align-items: center;
+  background: #f2f6fd;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.metric {
+  display: flex; align-items: center; gap: 6px;
+}
+.metric .emoji { font-size: 1.2rem; }
+
+@media (max-width: 1100px) {
+  .leads-table { min-width: 1024px;}
+}
+@media (max-width: 800px) {
+  .app-header, .filters-bar, .metrics-bar { flex-direction: column; align-items: flex-start; }
+  .app-header { gap: 8px; padding: 8px 8px; }
+  .filters-bar { gap: 8px; padding: 8px 8px;}
+  .metrics-bar { gap: 14px; padding: 8px 8px;}
+}
+
+@media (max-width: 600px) {
+  .app-header .app-title { font-size: 1.1rem; }
+  .month-label { font-size: 1rem; }
+  .leads-table { font-size: 0.95rem;}
+}
